@@ -46,7 +46,8 @@ public class TestBase {
     public static WebDriver driver;
     private static WebDriverWait driverWait;
 
-    static File app=new File("F:\\Android Test Automation\\carcon-20200513-dev.apk");
+    static File app= new File("F:\\Android Test Automation\\ESPN_v6.37.2.apk");
+
 
     //screenshot
     public static void captureScreenshot(WebDriver driver, String screenshotName) {
@@ -74,12 +75,15 @@ public class TestBase {
         platform = OS;
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability(MobileCapabilityType.APP,app.getAbsolutePath());
+        //cap.setCapability(MobileCapabilityType.APP,app.getAbsoluteFile());
+
         cap.setCapability(MobileCapabilityType.DEVICE_NAME, deviceName);
         if (OS.equalsIgnoreCase("android")) {
             cap.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
             cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, version);
-            cap.setCapability("appPackage", "com.chokuapp.dev");
-            cap.setCapability("appActivity", "com.chokuapp.ui.splash.SplashActivity");
+            cap.setCapability(MobileCapabilityType.UDID, "R8KN40091ZJ");
+            cap.setCapability("appPackage", "com.espn.score_center");
+            cap.setCapability("appActivity", "com.espn.sportscenter.ui.EspnLaunchActivity");
             if (appiumDriver == null) {
                 appiumDriver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
             }
@@ -198,6 +202,10 @@ public class TestBase {
         appiumDriver.quit();
     }
 
+    public void clickById(String locator) {
+        appiumDriver.findElement(By.id(locator)).click();
+    }
+
     public void clickByXpath(String locator) {
         appiumDriver.findElement(By.xpath(locator)).click();
     }
@@ -212,6 +220,11 @@ public class TestBase {
 
     public void sleep(int sec) throws InterruptedException {
         Thread.sleep(1000 * sec);
+    }
+
+
+    public void typeById(String locator, String value) {
+        appiumDriver.findElement(By.id(locator)).sendKeys(value);
     }
 
     public void typeByXpath(String locator, String value) {

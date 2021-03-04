@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Selenium Test Suite" parallel="false">
+<suite name="Appium Test Suite" parallel="false">
 
-    <parameter name="OS" value="ANDROID"/>
+    <parameter name="OS" value="Android"/>
     <parameter name="deviceName" value="Samsung Galaxy M01"/>
     <parameter name="version" value="10"/>
     <parameter name="appiumPort" value="4723"/>
 
-    <test name="Automation Login Logout Test">
+    <test name="ESPN app Launch Test">
         <classes>
-            <class name="com.DemoTests.login"/>
+            <class name="com.ESPN.ESPN_Launch"/>
 
         </classes>
     </test>
