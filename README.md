@@ -1,2 +1,2 @@
 # BootCampMobile
-Appum Amobile app Test Automation
+Appum Mobile app Test Automation
