@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Selenium Test Suite" parallel="false">
+
+    <parameter name="OS" value="ANDROID"/>
+    <parameter name="deviceName" value="Samsung Galaxy M01"/>
+    <parameter name="version" value="10"/>
+    <parameter name="appiumPort" value="4723"/>
+
+    <test name="Automation Login Logout Test">
+        <classes>
+            <class name="com.DemoTests.login"/>
+
+        </classes>
+    </test>
+
+</suite>
